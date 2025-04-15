@@ -47,16 +47,16 @@ export default class Voice {
     // Sawtooth oscillator at 2x frequency (harmonic)
     this.osc2 = this.context.createOscillator();
     this.osc2.type = "sawtooth";
-    this.osc2.frequency.setValueAtTime(this.frequency * 2, now);
+    this.osc2.frequency.setValueAtTime(this.frequency * 7 / 3,  now);
     this.osc2scale = this.context.createGain();
-    this.osc2scale.gain.value = 0.5;
+    this.osc2scale.gain.value = 0.25;
 
     // Sine oscillator at 0.5x frequency (subharmonic)
     this.osc3 = this.context.createOscillator();
     this.osc3.type = "triangle";
-    this.osc3.frequency.setValueAtTime(this.frequency / 2, now);
+    this.osc3.frequency.setValueAtTime(this.frequency / 7 / 4, now);
     this.osc3scale = this.context.createGain();
-    this.osc3scale.gain.value = 1.0;
+    this.osc3scale.gain.value = 0.5;
 
     // Ring modulation setup:
     // A low-frequency modulator modifies the gain of the signal path
